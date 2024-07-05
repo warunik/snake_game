@@ -124,6 +124,11 @@ class Game:
             if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 self.play_sound("crash")
                 raise "Game Over"
+            
+         # snake colliding with the boundries of the window
+        if not (0 <= self.snake.x[0] <= 1000 and 0 <= self.snake.y[0] <= 800):
+            self.play_sound('crash')
+            raise "Hit the boundry error"
 
     def show_game_over(self):
         self.render_background()
